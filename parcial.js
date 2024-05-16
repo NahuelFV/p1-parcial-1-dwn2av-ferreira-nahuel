@@ -54,6 +54,37 @@ let discos = [
                 },
             ],
         },
+        {
+            Nombre: 'El lado oscuro de la Programación',
+            Autor: 'Los Programadores Anónimos',
+            'Código': 1,
+            Pistas: [
+                {
+                    Nombre: 'Esa cajita loca llamada variablecita',
+                    'Duración': 200,
+                },
+                {
+                    Nombre: 'Nunca quise ser un NaN',
+                    'Duración': 180,
+                },
+                {
+                    Nombre: 'No quiero programar',
+                    'Duración': 999,
+                },
+                {
+                    Nombre: 'Bajo presión',
+                    'Duración': 240,
+                },
+                {
+                    Nombre: 'La odisea de las variables privadas',
+                    'Duración': 120,
+                },
+                {
+                    Nombre: 'Sr. Programador',
+                    'Duración': 720,
+                },
+            ],
+        },
 ];
 
 // Función Cargar:
@@ -155,24 +186,26 @@ const Mostrar = () => {
         html += `<div class="disco">
                 <h2>${disco.Nombre}</h2>
                 <p>Author: ${disco.Autor}</p>
-                <span>Codigo: ${disco.Código}</span>`
+                <p>Codigo: ${disco.Código}</p>
+                <p>Pistas (${disco.Pistas.length}) </p>`
 
         for (const pista of disco.Pistas) {
-                    html += `
-                        <p>Pista: ${pista.Nombre}</p>`
-                        if (pista["Duración"] > 180) {
-                            html += `<span class="red">Segundos: ${pista["Duración"]}</span>`
-                        } else {
-                            html += `<span>Segundos: ${pista["Duración"]}</span>`
-                        }
+                    html += `<p>Pista: ${pista.Nombre} - `
+
+                                if (pista["Duración"] > 180) {
+                                    html += `<span class="red">Segundos: ${pista["Duración"]}</span>`
+                                } else {
+                                    html += `<span>Segundos: ${pista["Duración"]}</span>`
+                                }
+
+                    html += `</p>`
             }
-                    html += `<span>Pistas (${disco.Pistas.length}) </span>`
                     
-                    html += `<span>Duracion total del disco : ${duracionTotal(disco)}</span>`
+                    html += `<p>Duracion total del disco: ${duracionTotal(disco)}</p>`
 
-                    html += `<span>Promedio de duracion del disco : ${PromedioDuracion(disco)}</span>`
+                    html += `<p>Promedio de duracion del disco: ${PromedioDuracion(disco)}</p>`
 
-                    html += `La pista con mayor duracion es de: ${mayorDuracionPista(disco)} segundos`;
+                    html += `<p>La pista con mayor duracion es de: ${mayorDuracionPista(disco)} segundos</p>`;
         }
         html += `</div>`
     }
@@ -219,3 +252,4 @@ function mayorDuracionPista(disco) {
     }
     return mayorDuracion;
 }
+
