@@ -184,7 +184,7 @@ const Mostrar = () => {
     // Cositas:
     for (const disco of discos) {{
         html += `<div class="disco">
-                <h2>${disco.Nombre}</h2>
+                <h3>${disco.Nombre}</h3>
                 <p>Author: ${disco.Autor}</p>
                 <p>Codigo: ${disco.Código}</p>
                 <p>Pistas (${disco.Pistas.length}) </p>`
@@ -200,7 +200,8 @@ const Mostrar = () => {
 
                     html += `</p>`
             }
-                    
+                    html += `<h4>Otros datos</h4>`
+
                     html += `<p>Duracion total del disco: ${duracionTotal(disco)}</p>`
 
                     html += `<p>Promedio de duracion del disco: ${PromedioDuracion(disco)}</p>`
