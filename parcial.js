@@ -46,10 +46,10 @@ let discos = [
             Pistas: [
                 {
                     Nombre: 'MONEY',
-                    'Duración': 6200,
+                    'Duración': 6100,
                 },
                 {
-                    Nombre: 'lALISA',
+                    Nombre: 'LALISA',
                     'Duración': 6200,
                 },
             ],
@@ -142,6 +142,8 @@ const Cargar = () => {
     discos.push(disco)
 
     contador++
+
+    console.log("Disco cargado con exito");
 };
 
 // Función Mostrar:
@@ -164,11 +166,13 @@ const Mostrar = () => {
                             html += `<span>Segundos: ${pista["Duración"]}</span>`
                         }
             }
-                    html += `<span>Pistas Agregadas: ${disco.Pistas.length}</span>`
+                    html += `<span>Pistas (${disco.Pistas.length}) </span>`
                     
                     html += `<span>Duracion total del disco : ${duracionTotal(disco)}</span>`
 
                     html += `<span>Promedio de duracion del disco : ${PromedioDuracion(disco)}</span>`
+
+                    html += `La pista con mayor duracion es de: ${mayorDuracionPista(disco)} segundos`;
         }
         html += `</div>`
     }
@@ -204,4 +208,14 @@ function PromedioDuracion(disco) {
         let pistas = disco.Pistas.length;
         let promedio = duracionTotal / pistas;
     return promedio;
+}
+
+function mayorDuracionPista(disco) {
+    let mayorDuracion = 0;
+    for (let pista of disco.Pistas) {
+        if (pista['Duración'] > mayorDuracion) {
+            mayorDuracion = pista['Duración'];
+        }
+    }
+    return mayorDuracion;
 }
