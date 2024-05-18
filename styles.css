@@ -260,3 +260,7 @@ input {
 li{
     list-style: none;
 }
+
+.blue{
+    color: red;
+}

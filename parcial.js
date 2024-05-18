@@ -57,7 +57,7 @@ let discos = [
         {
             Nombre: 'El lado oscuro de la Programación',
             Autor: 'Los Programadores Anónimos',
-            'Código': 1,
+            'Código': 2,
             Pistas: [
                 {
                     Nombre: 'Esa cajita loca llamada variablecita',
@@ -207,11 +207,13 @@ const Mostrar = () => {
                     html += `<p>Promedio de duracion del disco: ${PromedioDuracion(disco)}</p>`
 
                     html += `<p>La pista con mayor duracion es de: ${mayorDuracionPista(disco)} segundos</p>`;
+
         }
         html += `</div>`
     }
 
-    html += `${discosCargados()}`
+    html += discosCargados();
+    html += maxDuracionDisco();
     
     // Si modificaste el nombre de la variable para ir armando la cadena, también hazlo acá:
     document.getElementById('info').innerHTML = html; // <--- ahí es acá
@@ -219,7 +221,7 @@ const Mostrar = () => {
 
 // Todas las funciones que necesites:
 
-let contador = 1;
+let contador = 2;
 
 function discosCargados() {
     let html = "";
@@ -254,3 +256,61 @@ function mayorDuracionPista(disco) {
     return mayorDuracion;
 }
 
+function maxDuracionDisco() {
+    let maxDuracion = 0;
+    let maxDuracionNombre = '';
+    for (const disco of discos) {
+        let duracion = duracionTotal(disco);
+        if (duracion > maxDuracion) {
+            maxDuracion = duracion;
+            maxDuracionNombre = disco.Nombre;
+        }
+    }
+    return `<p>El disco con mayor duracion es ${maxDuracionNombre} con ${maxDuracion} segundos</p>`;
+}
+
+function codigoDisco() {
+    let codigo;
+    do {
+        codigo = parseInt(prompt("Ingrese el código numérico único del disco que desea ver"));
+
+        if (isNaN(codigo)) {
+            alert("Por favor, ingrese un número válido.");
+        } else {
+            const discoElegido = discos.find(disco => disco['Código'] === codigo);
+            if (discoElegido) {
+                mostrarDetalleDisco(discoElegido);
+            } else {
+                alert("No se encontró ningún disco con ese código.");
+            }
+        }
+    } while (isNaN(codigo));
+
+}
+
+function mostrarDetalleDisco(disco) {
+    let html = `
+        <div class="disco">
+            <h3>${disco.Nombre}</h3>
+            <p>Author: ${disco.Autor}</p>
+            <p>Código: ${disco['Código']}</p>
+            <p>Pistas (${disco.Pistas.length}) </p>`;
+
+    for (const pista of disco.Pistas) {
+        html += `<p>Pista: ${pista.Nombre} - `;
+        if (pista.Duración > 180) {
+            html += `<span class="red">Segundos: ${pista.Duración}</span>`;
+        } else {
+            html += `<span>Segundos: ${pista.Duración}</span>`;
+        }
+        html += `</p>`;
+    }
+
+    html += `<h4>Otros datos</h4>`;
+    html += `<p>Duración total del disco: ${duracionTotal(disco)}</p>`;
+    html += `<p>Promedio de duración del disco: ${PromedioDuracion(disco)}</p>`;
+    html += `<p>La pista con mayor duración es de: ${mayorDuracionPista(disco)} segundos</p>`;
+    html += `</div>`;
+
+    document.getElementById('info').innerHTML = html;
+}
