@@ -1,0 +1,199 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.menu{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(128, 128, 128, 0.39);
+    height: 60px;
+    color: white;
+}
+
+button{
+    width: 150px;
+    height: 50px;
+    border-radius: 12px;
+    border: none;
+    transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+
+button:hover {
+    background-color: gray;
+    color: white;
+    border: white 1px solid;
+}
+
+.container{
+    margin: 0 auto;
+    text-align: center;
+    background: rgba(128, 128, 128, 0.404);
+    width: 80%;
+}
+
+.container h2{
+    margin: 0 0 20px 0;
+    font-size: 40px;
+    padding-top: 30px;
+    color: white;
+}
+
+.botones-busqueda{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    padding-bottom: 40px;
+}
+
+.buscar-disco{
+    color: white;
+}
+
+.buscar-disco input{
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    margin: 0 10px 0 10px;
+    border: none;
+    text-align: center;
+}
+#info p{
+    text-align: center;
+    color: white;
+    margin-bottom: 10px;
+}
+#info{
+    margin-bottom: 70px;
+}
+
+.disco {
+    background-color: rgba(128, 128, 128, 0.445);
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 70%;
+    margin: 0 auto;
+    border-radius: 50px;
+    margin-bottom: 40px;
+}
+
+
+.disco h3{
+    margin-bottom: 30px;
+    font-size: 30px;
+    color: white;
+    text-decoration: underline;
+    margin-top: 20px;
+}
+
+.disco p{
+    font-size: 1.5rem;
+}
+.disco-image {
+    display: block;
+    max-width: 200px;
+    height: auto;
+    margin: 20px auto;
+}
+
+.cargado{
+    padding: 30px 0 30px 0;
+    font-size: 20px;
+}
+
+.red {
+    color: red;
+}
+
+
+.duracion-mayor {
+    color: red !important;
+    font-weight: bold;
+}
+
+.duracion-total-maxima {
+    border: 2px solid red;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+#video-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover;
+}
+
+.footer{
+    position: fixed;
+    bottom: 0;
+    background: rgba(128, 128, 128, 0.39);
+    height: 50px;
+    color: white;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer ul{
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 100px;
+}
+
+.footer ul li a{
+    color: white;
+}
+
+@media screen and (max-width: 425px) {
+    .botones-busqueda{
+        flex-direction: column;
+    }
+    .buscar-disco{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .footer ul{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+        padding: 10px 0 10px 0;
+        text-align: center;
+    }
+    .footer{
+        height: auto;
+    }
+    .menu{
+        text-align: center;
+    }
+    #info{
+        margin-bottom: 100px;
+    }
+    .disco{
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 1024px){
+    .buscar-disco{
+        display: flex;
+        align-items: center;
+    }
+    .botones-busqueda{
+        margin:0 15px 0 15px ;
+    }
+}

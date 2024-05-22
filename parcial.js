@@ -185,6 +185,7 @@ const Mostrar = () => {
     for (const disco of discos) {{
         html += `<div class="disco">
                 <h3>${disco.Nombre}</h3>
+                <img src="img/vinilo.png" alt="vinilo">
                 <p>Author: ${disco.Autor}</p>
                 <p>Codigo: ${disco.Código}</p>
                 <p>Pistas (${disco.Pistas.length}) </p>`
@@ -292,6 +293,7 @@ function mostrarDetalleDisco(disco) {
     let html = `
         <div class="disco">
             <h3>${disco.Nombre}</h3>
+            <img src="img/vinilo.png" alt="vinilo">
             <p>Author: ${disco.Autor}</p>
             <p>Código: ${disco['Código']}</p>
             <p>Pistas (${disco.Pistas.length}) </p>`;
