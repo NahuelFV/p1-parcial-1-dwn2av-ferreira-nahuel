@@ -69,7 +69,7 @@ let discos = [
                 },
                 {
                     Nombre: 'No quiero programar',
-                    'Duración': 999,
+                    'Duración': 240,
                 },
                 {
                     Nombre: 'Bajo presión',
@@ -205,7 +205,7 @@ const Mostrar = () => {
 
                     html += `<p>Duracion total del disco: ${duracionTotal(disco)}</p>`
 
-                    html += `<p>Promedio de duracion del disco: ${PromedioDuracion(disco)}</p>`
+                    html += `<p>Promedio de duracion del disco: ${PromedioDuracion(disco)} segundos</p>`
 
                     html += `<p>La pista con mayor duracion es de: ${mayorDuracionPista(disco)} segundos</p>`;
 
@@ -226,7 +226,7 @@ let contador = 2;
 
 function discosCargados() {
     let html = "";
-        return html += `<span>Discos Cargados: ${contador}</span>`
+        return html += `<p class="contador">Discos Cargados: ${contador}</p>`
 }
 
 function duracionTotal(disco) {
@@ -244,7 +244,7 @@ function PromedioDuracion(disco) {
     }
         let pistas = disco.Pistas.length;
         let promedio = duracionTotal / pistas;
-    return promedio;
+    return parseInt(promedio);
 }
 
 function mayorDuracionPista(disco) {
@@ -267,7 +267,7 @@ function maxDuracionDisco() {
             maxDuracionNombre = disco.Nombre;
         }
     }
-    return `<p>El disco con mayor duracion es ${maxDuracionNombre} con ${maxDuracion} segundos</p>`;
+    return `<p class="duracion">El disco con mayor duracion es ${maxDuracionNombre} con ${maxDuracion} segundos</p>`;
 }
 
 function codigoDisco() {
