@@ -1,7 +1,7 @@
 'use strict';
 
 /*
- * Vera, Nahuel
+ * Vera Ferreira, Nahuel
  */
 
 // Ejemplo de la estructura de un disco:
