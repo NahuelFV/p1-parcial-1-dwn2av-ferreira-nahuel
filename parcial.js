@@ -288,29 +288,33 @@ function codigoDisco() {
 }
 
 function mostrarDetalleDisco(disco) {
-    let html = `
-        <div class="disco">
-            <h3>${disco.Nombre}</h3>
-            <img src="img/vinilo.png" alt="vinilo">
-            <p>Author: ${disco.Autor}</p>
-            <p>Código: ${disco['Código']}</p>
-            <p>Pistas (${disco.Pistas.length}) </p>`;
+    let html = "";
+        html += `<section class="disco">
+        <h3>${disco.Nombre}</h3>
+        <img src="img/vinilo.png" alt="Vinilo de ${disco.Nombre}">
+        <p>Autor: ${disco.Autor}</p>
+        <p>Código: ${disco.Código}</p>
+        <h4>Pistas (${disco.Pistas.length})</h4>
+        <ul>`;
 
-    for (const pista of disco.Pistas) {
-        html += `<p>Pista: ${pista.Nombre} - `;
-        if (pista.Duración > 180) {
-            html += `<span class="red">Segundos: ${pista.Duración}</span>`;
-        } else {
-            html += `<span>Segundos: ${pista.Duración}</span>`;
+        for (const pista of disco.Pistas) {
+            html += `<li>Pista: ${pista.Nombre} - `;
+
+            if (pista["Duración"] > 180) {
+                html += `<span class="red">Segundos: ${pista["Duración"]}</span>`;
+            } else {
+                html += `<span>Segundos: ${pista["Duración"]}</span>`;
+            }
+
+            html += `</li>`;
         }
-        html += `</p>`;
-    }
 
-    html += `<h4>Otros datos</h4>`;
-    html += `<p>Duración total del disco: ${duracionTotal(disco)}</p>`;
-    html += `<p>Promedio de duración del disco: ${PromedioDuracion(disco)}</p>`;
-    html += `<p>La pista con mayor duración es de: ${mayorDuracionPista(disco)} segundos</p>`;
-    html += `</div>`;
+        html += `</ul>
+        <h4>Otros datos</h4>
+        <p>Duración total del disco: ${duracionTotal(disco)} segundos</p>
+        <p>Promedio de duración del disco: ${PromedioDuracion(disco)} segundos</p>
+        <p>La pista con mayor duración es de: ${mayorDuracionPista(disco)} segundos</p>
+        </section>`;
 
     document.getElementById('info').innerHTML = html;
 }
