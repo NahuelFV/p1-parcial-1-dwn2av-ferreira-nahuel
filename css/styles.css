@@ -92,7 +92,8 @@ button:hover {
 }
 
 .disco p{
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+    margin-top: 10px;
 }
 .disco-image {
     display: block;
@@ -157,12 +158,17 @@ button:hover {
 
 .duracion{
     font-size: 20px;
-    margin-top: 10px;
+    padding-bottom: 20px;
 }
 
 .contador{
     font-size: 20px;
     color: white;
+}
+
+li{
+    list-style: none;
+    margin: 10px 0px 10px 0px;
 }
 
 @media screen and (max-width: 425px) {
@@ -191,10 +197,25 @@ button:hover {
         text-align: center;
     }
     #info{
-        margin-bottom: 100px;
+        margin-bottom: 160px;
     }
     .disco{
         width: 90%;
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (min-width: 768px){
+    .disco {
+        margin-bottom: 20px;
+    }
+    .footer{
+        display: flex;
+        & ul{
+            display: flex;
+            align-items: center;
+            gap: 80px;
+        }
     }
 }
 
